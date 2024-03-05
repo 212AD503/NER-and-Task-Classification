@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NER and Task Classification</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0; /* Set background color */
+            padding: 20px; /* Add padding */
+        }
+        h1 {
+            text-align: center; /* Center align heading */
+        }
+        form {
+            background-color: #fff; /* Set form background color */
+            padding: 20px;
+            border-radius: 10px; /* Add border radius */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add box shadow */
+        }
+        label {
+            font-weight: bold; /* Bold label text */
+        }
+        textarea {
+            width: 100%;
+            height: 100px;
+            resize: none; /* Disable textarea resizing */
+            border-radius: 5px; /* Add border radius */
+        }
+        button {
+            background-color: #007bff; /* Set button background color */
+            color: #fff; /* Set button text color */
+            padding: 10px 20px; /* Add padding */
+            border: none;
+            border-radius: 5px; /* Add border radius */
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3; /* Darken background color on hover */
+        }
+        .results {
+            margin-top: 20px; /* Add margin to results section */
+            background-color: #fff; /* Set results section background color */
+            padding: 20px;
+            border-radius: 10px; /* Add border radius */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add box shadow */
+        }
+        .results p {
+            margin: 10px 0; /* Add margin to paragraphs */
+        }
+    </style>
+</head>
+<body>
+    <h1>NER and Task Classification</h1>
+    <form action="/" method="POST">
+        <label for="input_sentence">Enter your sentence:</label><br>
+        <textarea id="input_sentence" name="input_sentence" rows="4" cols="50" required></textarea><br>
+        <button type="submit">Submit</button>
+    </form>
+    
+    {% if output_result %}
+    <div class="results">
+        <h2>Results:</h2>
+        <p><strong>Input Sentence:</strong> {{ output_result.input_sentence }}</p>
+        <p><strong>From:</strong> {{ output_result.From }}</p>
+        <p><strong>To:</strong> {{ output_result.To }}</p>
+        <p><strong>Date:</strong> {{ output_result.Date }}</p>
+        <p><strong>Time:</strong> {{ output_result.Time }}</p>
+        <p><strong>Task Class:</strong> {{ output_result.Task_Class }}</p>
+    </div>
+    {% endif %}
+</body>
+</html>
